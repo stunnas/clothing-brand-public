@@ -1,0 +1,319 @@
+:root {
+    --theme-color-one: rgb(72, 173, 255);
+    --theme-color-two: rgb(108, 253, 255);
+    --theme-color-alt: rgb(255, 255, 255);
+}
+.wrapper {
+    position: fixed;  /* Changed from relative to fixed */
+    transform: translate(-50%, -50%) scale(0);
+    width: 400px;
+    height: 450px;
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.5);
+    border-radius: 20px;
+    backdrop-filter: blur(15px);
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform: scale(0);
+    transition: transform 0.7s ease, height .3s ease;
+    z-index: 99;
+}
+.wrapper.active {
+    height: 520px;
+}
+.wrapper.active-popup {
+    transform: scale(1);
+}
+.wrapper .icon-close button {
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    top: 2.5%;
+    right: 2.5%;
+    width: 25px;
+    height: 25px;
+    font-size: 2.5em;
+    color: white;
+    border: none;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+.wrapper .icon-close button:hover {
+    filter: invert();
+    cursor: pointer;
+}
+.wrapper .icon-close button img {
+    cursor: pointer;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+.wrapper .form-box.login {
+    transition: transform 0.7s ease;
+    transform: translateX(0);
+}
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-500px);
+}
+.wrapper .login-title {
+    user-select: none;
+    animation: colorChange 10s infinite linear, shadowColorChange 10s infinite linear;
+    text-shadow: -2px -2px 0 #000,  
+               2px -2px 0 #000,
+              -2px  2px 0 #000,
+               2px  2px 0 #000;
+    
+}
+.wrapper .login-title.registration {
+    font-size: 50px;
+}
+.wrapper .login-title.login {
+    font-size: 60px;
+}
+.wrapper .form-box.register {
+    position: absolute;
+    transform: translateX(500px);
+
+}
+.wrapper.active .form-box.register {
+    transition: transform 0.7s ease;
+    transform: translateX(0) ;
+}
+.form-box h2 {
+    color: #212f45;
+    text-align: center;
+    font-size: 2.25em;
+}
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-weight: 500;
+    pointer-events: none;
+    transition: 0.5s;
+}
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+    font-size: 1em;
+}
+.input-box label.up {
+    top: -5px;
+}
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+}
+.input-box .icon {
+    position: absolute;
+    right: 10px;
+    color: #212f45;
+    line-height: 60px;
+}
+.remember-forgot {
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.remember-forgot a {
+    text-decoration: none;
+    color: #212f45;
+}
+.remember-forgot a:hover {
+    text-decoration: underline;
+}
+.remember-forgot label input {
+    accent-color: rgb(175, 213, 248);
+    color: #212f45;
+    margin-right: 5px;
+}
+.register-buttons, .login-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.separator {
+    margin: 0 15px;
+    color: #212f45;
+    font-weight: 500;
+}
+.btn {
+    width: 100%;
+    height: 45px;
+    font-weight: 500;
+    font-size: 1.1em;
+    background: rgba(132, 177, 255, 0.826);
+    color: #f4f8ff;
+    border: 1px solid black;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    flex-basis: 100px; /* Set the initial width */
+    transition: flex-basis 0.75s ease, background-color 0.3s ease;
+}
+.register-buttons button:hover,
+.login-buttons button:hover {
+    background-color: #357ABD;
+    border-color: white;
+}
+
+#btn-google-register,
+#btn-register,
+#btn-login,
+#btn-google-login {
+    width: 100px;
+    max-width: 200px;
+    height: 50px;
+    margin: 0;
+}
+
+#btn-google-register,
+#btn-google-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px; /* Add some padding to the button */
+    overflow: hidden; /* Hide overflow content */
+    position: relative;
+    background-color: rgb(194, 4, 4);
+}
+
+#btn-google-register:hover,
+#btn-google-login:hover {
+    flex-basis: 200px; /* Set the width on hover */
+}
+
+
+
+#btn-google-register:hover ion-icon,
+#btn-google-login:hover ion-icon {
+    margin-right: auto; /* Push the logo to the left on hover */
+}
+
+
+
+#btn-google-register ion-icon,
+#btn-google-login ion-icon { 
+    color: white;
+    font-size: 24px;
+    transition: margin-right 1s ease;
+}
+
+#btn-google-register:hover .google-text,
+#btn-google-login:hover .google-text {
+    opacity: 1;
+    margin-left: 30px; /*adjust text spacing*/
+    max-width: 150px;
+}
+
+.google-text {
+    font-size: 10pt;
+    opacity: 0;
+    max-width: 0;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow content */
+    transition: opacity 0.2s ease, max-width 1.75s ease, margin-left 1s ease;
+    position: absolute; /* Position the text absolutely */
+    top: 50%; /* Center the text vertically */
+    transform: translateY(-50%); /* Adjust for perfect vertical centering */
+    
+}
+
+.separator,
+.google-text,
+.btn {
+    user-select: none;
+}
+.login-register {
+    color: #212f45;
+    text-align: center;
+    margin: 25px 0 10px;
+    user-select: none;
+}
+.login-register p a {
+    color: #212f45;
+    font-weight: 750;
+    text-decoration: none;
+}
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+@keyframes colorChange {
+    0% {
+        color: rgb(188, 221, 255);
+    }
+    50% {
+        color: #af76ff;
+    }
+    75% {
+        color: rgb(81, 46, 255);
+    }
+    100% {
+        color: rgb(188, 221, 255);
+    }
+  }
+  
+  @keyframes shadowColorChange {
+    0% {
+      text-shadow: -2px -2px 0 #ffffff,  
+                   2px -2px 0 #000,
+                  -2px  2px 0 #ffffff,
+                   2px  2px 0 #323232;
+    }
+    25% {
+      text-shadow: -2px -2px 0 #fff5f5,  
+                   2px -2px 0 #111111,
+                  -2px  2px 0 #ebe6e6,
+                   2px  2px 0 #000000;
+    }
+    50% {
+      text-shadow: -2px -2px 0 #040404,  
+                   2px -2px 0 #ffffff,
+                  -2px  2px 0 #191717,
+                   2px  2px 0 #000;
+    }
+    75% {
+      text-shadow: -2px -2px 0 #a6a6a6,  
+                   2px -2px 0 #150e0e,
+                  -2px  2px 0 #000000,
+                   2px  2px 0 #fff;
+    }
+    100% {
+      text-shadow: -2px -2px 0 #dadada,  
+                   2px -2px 0 #000,
+                  -2px  2px 0 #ffffff,
+                   2px  2px 0 #515151;
+    }
+  }
+  
+  
+  
+  
+  

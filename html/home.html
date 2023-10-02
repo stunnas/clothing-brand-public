@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Stunna Apparel</title>
+  <link rel="stylesheet" href="/stunnaWeb/css/style.css">
+  <link rel="stylesheet" href="/stunnaWeb/css/userlogin.css">
+  <link rel="stylesheet" href="/stunnaWeb/css/filtercards.css">
+  <link rel="stylesheet" href="/stunnaWeb/css/darkmode.css">
+</head>
+<body>
+    <header>
+        <div id="logo-container">
+            <h2 class="logo">Logo</h2>
+        </div>
+        <div class="nav-center-right-container">
+            <nav class="navigation">
+                <div class="nav-center-content">
+                    <label class="theme-switch">
+                        <span class="sun"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g fill="#ffd43b"><circle r="5" cy="12" cx="12"></circle><path d="m21 13h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm-17 0h-1a1 1 0 0 1 0-2h1a1 1 0 0 1 0 2zm13.66-5.66a1 1 0 0 1 -.66-.29 1 1 0 0 1 0-1.41l.71-.71a1 1 0 1 1 1.41 1.41l-.71.71a1 1 0 0 1 -.75.29zm-12.02 12.02a1 1 0 0 1 -.71-.29 1 1 0 0 1 0-1.41l.71-.66a1 1 0 0 1 1.41 1.41l-.71.71a1 1 0 0 1 -.7.24zm6.36-14.36a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm0 17a1 1 0 0 1 -1-1v-1a1 1 0 0 1 2 0v1a1 1 0 0 1 -1 1zm-5.66-14.66a1 1 0 0 1 -.7-.29l-.71-.71a1 1 0 0 1 1.41-1.41l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.29zm12.02 12.02a1 1 0 0 1 -.7-.29l-.66-.71a1 1 0 0 1 1.36-1.36l.71.71a1 1 0 0 1 0 1.41 1 1 0 0 1 -.71.24z"></path></g></svg></span>
+                        <span class="moon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="m223.5 32c-123.5 0-223.5 100.3-223.5 224s100 224 223.5 224c60.6 0 115.5-24.2 155.8-63.4 5-4.9 6.3-12.5 3.1-18.7s-10.1-9.7-17-8.5c-9.8 1.7-19.8 2.6-30.1 2.6-96.9 0-175.5-78.8-175.5-176 0-65.8 36-123.1 89.3-153.3 6.1-3.5 9.2-10.5 7.7-17.3s-7.3-11.9-14.3-12.5c-6.3-.5-12.6-.8-19-.8z"></path></svg></span>   
+                        <input type="checkbox" class="theme-cb">
+                        <span class="theme-slider"></span>
+                    </label>
+                    <!-- <label class="theme-switch">
+                        <input type="checkbox" class="theme-cb">
+                        <span class="theme-toggle">
+                            <span class="theme-left">Light</span>  
+                            <span class="theme-right">Dark</span>  
+                        </span>
+                    </label> -->
+                    <a href="/stunnaWeb/html/home.html"><img src="/stunnaWeb/images/non-svg/home.png" id="home-link"></a>
+                    <a href="/stunnaWeb/html/shop.html"><img src="/stunnaWeb/images/non-svg/shop.png" id="shop-link"></a>
+                    <a href="/stunnaWeb/html/about.html"><img src="/stunnaWeb/images/non-svg/about.png" id="about-link"></a>
+                    <a href="/stunnaWeb/html/calendar.html"><img src="/stunnaWeb/images/non-svg/calendar.png" id="calendar-link"></a>
+                </div>
+            </nav>
+            <div class="nav-right-content">
+                <a><img src="/stunnaWeb/images/non-svg/cart.png"></a>
+                <button class="login-btn-popup">Login</button>
+            </div>
+        </div>
+    </header>
+<!-- Login/Register Popup Screen -->
+    <div class="wrapper">
+        <span class="icon-close">
+            <button><img src="/stunnaWeb/images/icons/close-icon.svg"></button>
+        </span>
+
+        <div class="form-box login">
+            <h2 class="login-title login">Login</h2>
+            <form action="#"> <!-- Replace # for PHP GET request -->
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">Remember me</label>
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <div class="login-buttons">
+                    <button type="submit" class="btn" id="btn-login">Login</button>
+                    <span class="separator">|</span>
+                    <button class="btn" id="btn-google-login">
+                        <ion-icon name="logo-google"></ion-icon>
+                        <span class="google-text">Login with Google</span>
+                    </button>
+                </div>
+                <div class="login-register">
+                    <p>Don't have an account? <a href="#" class="register-link">Register</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="form-box register">
+            <h2 class="login-title registration">Registration</h2>
+            <form action="#"> <!-- Replace # for PHP GET request -->
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="person"></ion-icon>
+                    </span>
+                    <input type="text" required>
+                    <label>Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="mail"></ion-icon>
+                    </span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon">
+                        <ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="password" required>
+                    <label>Password</label>
+                </div>
+                <div class="remember-forgot">
+                    <label><input type="checkbox">I agree to the terms & conditions</label>
+                </div>
+                <div class="register-buttons">
+                    <button type="submit" class="btn" id="btn-register">Register</button>
+                    <span class="separator">|</span>
+                    <button class="btn" id="btn-google-register">
+                        <ion-icon name="logo-google"></ion-icon>
+                        <span class="google-text">Register with Google</span>
+                    </button>
+                </div>                
+                <div class="login-register">
+                    <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    <main class="main-content">
+    </main>
+
+    <script src="/stunnaWeb/js/script.js"></script>
+    <script src="/stunnaWeb/js/filtercards.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    background-color: rgba(174, 220, 247, 0.51);
+    border: 1px solid;
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-shrink: 0;
+    z-index: 99;
+}
+.header-hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-out;
+}
+header img{
+    user-select: pointer;
+    filter: invert();
+}
+header .login-btn-popup {
+    width: 75px;
+    height: 35px;
+    margin-left: 25px;
+    background: transparent;
+    border: 2px solid white;
+    outline: none;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+}
+header .login-btn-popup:hover {
+    background: white;
+    color: black;
+}
+.logo {
+    user-select: none;
+}
+ion-icon[name="cart-outline"], ion-icon[name="calendar-outline"] {
+    font-weight: bold; 
+    vertical-align: middle; /* Align it with the text */
+}
+.navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    user-select: none;
+}
+.navigation a {
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    color: white;
+}
+
+/* Ensure all navigation items are vertically aligned in the middle */
+.navigation a, .navigation button, .navigation img {
+    vertical-align: middle;
+}
+
+.navigation a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    border-radius: 5px;
+    background: black;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+.navigation a:hover::after {
+    transform: scaleX(1);
+}
+.nav-center-content, .nav-right-content {
+    display: flex;
+    align-items: center;
+}
+.nav-center-right-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #5A6381;
+    /* Photo by <a href="https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Pawel Czerwinski</a> on <a href="https://unsplash.com/photos/9lNoGFaNI2c?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> */
+    background-image: url("/stunnaWeb/images/non-svg/light-background.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+body > main {
+    margin-top: 80px; /* Adjust this value based on the actual height of your header */
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.theme-switch {
+    transform: scale(0.8);
+}

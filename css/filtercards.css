@@ -1,0 +1,493 @@
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
+
+@media (max-width: 1000px) {
+    
+    .settings-tab {
+        left: -100%; /* Hide the tab completely off-screen */
+        width: 100%; /* Make the tab full width */
+    }
+    
+    .settings-tab.open {
+        left: 0; /* Show the tab when it's open */
+    }
+    @media (max-width: 600px) {
+        .settings-tab button {
+            display: none;
+        }
+        .settings-open .products {
+            margin-left: 0; /* Reset the margin-left */
+            width: 100%; /* Make the products full width */
+        }
+    }
+    .products {
+        margin-left: 0; /* Remove the left margin */
+        width: 100%; /* Make the products full width */
+    }
+
+    .filter-tab-button.active, .sort-tab-button.active {
+        left: 0; /* Adjust the button position */
+    }
+}
+
+    
+:root {
+    --settings-button-top: 12.5vh;
+    --settings-button-height-gap: 10vh;
+    --settings-button-edge-bound: 27.5vh;
+    --theme-color-one: rgb(72, 173, 255);
+    --theme-color-two: rgb(108, 253, 255);
+    --theme-color-alt: rgb(255, 255, 255);
+}
+/* Grid Layout */
+.layout {
+    width: 1366px;
+    height: 768px;
+    display: grid;
+    grid:
+        "sidebar body" 1fr
+        / auto 75%;
+    gap: 30px;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    overflow-y: auto;
+    scrollbar-color: #fff #ddd;
+}
+
+.body {
+    grid-area: body;
+}
+body {
+    overflow: hidden;
+}
+/* Sidebar Styles */
+.settings-tab {
+    overflow-y: auto;
+    width: 100%;
+    height: 87.5vh;
+    border-radius: 5px;
+    border: 3px solid;
+    background-color: #d2c7c7;
+    padding: 2.5px 2.5px 5px 2.5px;
+    transition: opacity 1.5s;
+    scrollbar-color: #fff #000000;
+    
+}
+
+.settings-tab .filter-content,
+.settings-tab .sort-content {
+    opacity: 0;  /* Initial state */
+    display: none; /* Hidden by default */
+}
+
+.settings-tab.filter-mode .filter-content,
+.settings-tab.sort-mode .sort-content {
+    opacity: 1;  /* Final state */
+    display: block; /* Visible when active */
+}
+
+/* Settings Tab Button Styles */
+.settings-button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+    margin-bottom: 20px; /* Spacing between buttons and checkboxes */
+    scrollbar-color: #fff #000000;
+}
+
+/* Ensure all buttons in the settings tab are of the same width */
+.settings-button-container button {
+    box-sizing: border-box;
+    max-width: 180px;
+    width: 150px;
+    height: 100px;
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: flex;
+    flex-direction: column; /* Stack the image and text vertically */
+    align-items: center; /* Center the contents */
+    justify-content: center;
+    flex: 2;
+}
+/* Adjust the flex property of the sort/filter button */
+.filter-tab-button, .sort-tab-button {
+    flex: 2; /* This will make the sort/filter button take up more space */
+}
+.settings-tab button img {
+    width: 40px; /* or any desired width */
+    height: 40px;
+    margin-bottom: 10px; /* space between the image and the text */
+}
+.settings-tab button:hover {
+    flex-grow: 20; /* Adjust this value as needed */
+}
+
+.settings-button-container button img {
+    max-width: 70px;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    margin-top: auto;
+}
+
+.settings-button-container button:hover img {
+    filter: invert();
+}
+.product-card .product-menu img {
+    filter: invert();
+}
+.settings-button-container button span {
+    white-space: normal; /* Allow the text to wrap to the next line */
+    text-overflow: clip; /* Remove the ellipsis */
+    overflow: visible; /* Show the overflowed text */
+    min-height: 20px; /* Ensure there's space for at least one line of text */
+    display: block; /* Make the span a block element */
+}
+.settings-tab button {
+    /* flex: 1; This will ensure all buttons take up equal space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: flex-grow 0.3s; /* Smooth transition for the growth */
+}
+
+.filter-buttons,
+.sort-buttons,
+.top-buttons {
+    max-width: 150px;
+    height: 100px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.clear-button {
+    background-color: red;
+}
+
+.sort-search-button,
+.filter-search-button {
+    background-color: var(--theme-color-two);
+}
+
+/* Checkbox Grouping */
+.filter-group, .sort-group {
+    margin-top: 20px; /* Spacing between different checkbox groups */
+}
+
+.filter-section {
+    user-select: none;
+}
+
+.filter-section button {
+    border: 2px solid black;
+    color: rgb(0, 0, 0); 
+    padding: 10px;
+}
+
+.filter-section button:hover {
+    border-color: black;
+    background-color: #555;
+    color:white;
+}
+
+.filter-option {
+    margin: 20px 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.filter-section h4 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.filter-section label {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    font-size: 1em;
+}
+
+.filter-section input[type="checkbox"],
+.filter-section input[type="radio"] {
+    margin-right: 10px;
+}
+
+#sortButton,
+.sort-group,
+.clear-button,
+.sort-search-button,
+.filter-search-button {
+    display: none; /* Hide the buttons initially */
+}
+
+#sortButton span,
+#filterButton span,
+.filter-search-button span,
+.sort-search-button span {
+    margin-top: 10px;
+}
+.clear-button span {
+    margin-top: 15px;
+}
+
+
+#sortButton img,
+#filterButton img,
+.sort-search-button img,
+.clear-button img {
+    width: 50px;
+    height: 50px;
+}
+
+/* Main Content Styles */
+.main-content {
+    width: 100%;
+}
+
+.products {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    width: 100%;
+    height: 87.5vh;
+    backdrop-filter: blur(20px);
+    margin: 0;
+    padding: 25px;
+    border: 3px solid;
+    border-radius: 10px;
+    gap: 20px;
+}
+
+.product-card {
+    flex: 0 0 calc(33.33% - 20px);
+    max-height: calc(70% - 20px);
+    border: 3.5px solid var(--theme-color-one);
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: scale(1.025);
+    color: var(--theme-color-one);
+}
+
+.product-card img {
+    width: 100%;
+    height: 100%;
+}
+
+.product-card h2 {
+    font-size: 28pt;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 227, 227, 0.615);
+}
+
+.product-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 75px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.product-menu img {
+    width: 50px;
+    height: auto;
+    margin-right: 20px;
+}
+
+.product-card:hover .product-menu {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-option {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 28pt;
+}
+.menu-option:hover span,
+.menu-option:hover button {
+    filter: invert();
+}
+
+/* Responsive Styles */
+@media (max-width: 1500px) {
+    .products {
+        width: 100%;
+    }
+}
+
+@media (max-width: 900px) {
+    .settings-tab {
+        display: none;
+    }
+}
+
+
+/* .card-container {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 0.5rem;
+justify-content: center;
+align-items: center;
+border-radius: 10px;
+background: rgba(159, 202, 231, 0.881);
+} */
+
+
+/* .card-container-box {
+opacity: 0;
+transition: transform 2s ease, opacity 2s ease; /* specify the properties you want to animate */
+/* transform: scale(0.95);
+} */
+/* .card-container-box.show {
+transform: scale(1) translateX(0); /* combine the transform properties */
+/* opacity: 1;
+}  */
+
+
+/* .card.clothestype.shirt {
+background-image: url(/stunnaWeb/images/shirt.jpeg);
+}
+.card.clothestype.sweatshirt {
+background-image: url(/stunnaWeb/images/hoodie.webp);
+}
+.card.clothestype.shorts {
+background-image: url(/stunnaWeb/images/shorts.jpeg);
+}
+.card.clothestype.all {
+background-image: url(/stunnaWeb/images/all.jpeg);
+} */
+/* .card {
+background-image: url("/stunnaWeb/images/under.jpg");
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+width: var(--card-width);
+height: var(--card-height);
+flex-basis: calc(25% - 2rem);
+padding: 3px;
+margin: 1rem;
+margin-top: 2vh;
+position: relative;
+border-radius: 6px;
+justify-content: center;
+align-items: center;
+text-align: center;
+display: flex;
+font-size: 2.0em;
+color: rgb(249, 253, 255);
+filter: drop-shadow(20px 20px 10px rgba(42, 44, 194, 0.622));
+border-color: black;
+border-width: 20px;
+cursor: pointer;
+transition: color 1s, box-shadow 1s ease-in-out;
+}
+.card:hover,
+.card.selected {
+color: #4eb67d;
+font-size: 3em;
+filter: drop-shadow(0px 10px 10px rgba(246, 37, 37, 0.869));
+box-shadow: 0px 0px 20px 5px rgba(27, 19, 19, 0.881);
+transition: box-shadow 1s ease-in-out, ease 2s;
+}
+.card:hover:before,
+.card:hover:after {
+opacity: 0.7;
+} */
+/* .card::before {
+content: "";
+width: 104%;
+height: 102%;
+border-radius: 8px;
+background-image: linear-gradient(var(--rotate),
+#a20258, #e33c3c 50%, #4e00c2); */
+/* opacity: 0.4; */
+/* position: absolute;
+z-index: -1;
+top: -1%;
+left: -2%;
+transition: ease 1s;
+animation: spin 2.5s linear infinite;
+} */
+/* .card::after {
+position: absolute;
+content: "";
+top: calc(var(--card-height) / 6);
+left: 0;
+right: 0;
+z-index: -1;
+height: 100%;
+width: 100%;
+margin: 0 auto;
+transform: scale(0.8);
+filter: blur(calc(var(--card-height) / 10));
+background-image: linear-gradient(var(--rotate),
+#daffeb, #a8bdff 43%, #4e00c2);
+opacity: 1;
+transition: opacity .5s;
+transition: ease 1s;
+animation: spin 2.5s linear infinite;
+}
+.card.selected::before,
+.card.selected::after,
+.card:hover:before,
+.card:hover:after {
+opacity: 0.7;
+}
+.card::before,
+.card::after {
+opacity: 0.2;
+transition: ease 0.1s;
+}
+@keyframes spin {
+    0% {
+    --rotate: 0deg;
+    }
+
+
+    100% {
+    --rotate: 360deg;
+    }
+} */
+
+
+
+    
